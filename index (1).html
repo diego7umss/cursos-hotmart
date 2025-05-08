@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impulsa tu Carrera con Nuestros Cursos Exclusivos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200 text-gray-800">
+    <header class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-6 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">🚀 Impulsa tu Carrera al Siguiente Nivel 🚀</h1>
+            <p class="text-lg sm:text-xl mb-4">Cursos diseñados para tu éxito profesional en el sector bancario y en LinkedIn</p>
+            <a href="#cursos" class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out text-lg sm:text-xl">
+                Descubre Nuestros Cursos
+            </a>
+        </div>
+    </header>
+
+    <main id="cursos" class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 text-center mb-6">🌟 Nuestros Cursos Destacados 🌟</h2>
+            <p class="text-center text-gray-700 text-lg sm:text-xl mb-8">
+                Selecciona un curso para ver más detalles.
+            </p>
+
+            <!-- Botones para seleccionar cursos -->
+            <div class="flex justify-center space-x-6 mb-8">
+                <button onclick="showCourse(1)" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out">
+                    Curso 1: Mundo Bancario
+                </button>
+                <button onclick="showCourse(2)" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out">
+                    Curso 2: LinkedIn
+                </button>
+            </div>
+
+            <!-- Sección dinámica de detalles del curso -->
+            <div id="course-details" class="bg-white rounded-xl shadow-lg p-6 hidden">
+                <h3 id="course-title" class="text-2xl font-bold text-blue-600 mb-4"></h3>
+                <div id="course-content" class="text-gray-800"></div>
+                <div id="course-image" class="mt-6 text-center">
+                    <img id="dynamic-image" class="rounded-lg shadow-md mx-auto" src="" alt="Imagen del curso" style="max-width: 500px;">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-4 text-center">
+        <p class="text-sm">© 2024 Todos los derechos reservados. Cursos Profesionales.</p>
+    </footer>
+
+    <script>
+        const courses = {
+            1: {
+                title: "Curso 1: Cómo iniciar y triunfar en el mundo bancario",
+                pains: `
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>No saben cómo ingresar a trabajar en un banco.</li>
+                        <li>Les rechazan el CV por falta de experiencia bancaria.</li>
+                        <li>No conocen los puestos más demandados ni cómo prepararse.</li>
+                        <li>Se sienten perdidos al momento de prepararse para entrevistas en banca.</li>
+                        <li>Les falta confianza y guía práctica.</li>
+                        <li>No entienden cómo funcionan los ascensos dentro del sector bancario.</li>
+                    </ul>
+                `,
+                needs: `
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Aprender los pasos concretos para entrar al sector financiero.</li>
+                        <li>Saber qué habilidades, cursos o certificaciones buscar.</li>
+                        <li>Guías prácticas para entrevistas, hoja de vida y networking.</li>
+                        <li>Conocer historias reales de éxito.</li>
+                        <li>Acceso a simulaciones o ejercicios reales (test bancarios, atención al cliente, etc).</li>
+                        <li>Entender el "mapa de carrera" dentro de un banco.</li>
+                    </ul>
+                `,
+                modules: `
+                    <h4 class="font-semibold text-lg">Módulos del Curso</h4>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Módulo 1:</strong> Introducción al Mundo Bancario</li>
+                        <li><strong>Módulo 2:</strong> Preparando tu Entrada al Sector</li>
+                        <li><strong>Módulo 3:</strong> Habilidades Clave para el Éxito</li>
+                        <li><strong>Módulo 4:</strong> El Proceso de Selección en Banca</li>
+                        <li><strong>Módulo 5:</strong> Crecimiento y Desarrollo de Carrera</li>
+                        <li><strong>Módulo 6:</strong> Casos de Éxito y Consejos Prácticos</li>
+                    </ul>
+                `,
+                image: "https://via.placeholder.com/500x300?text=Finanzas+y+Banca"
+            },
+            2: {
+                title: "Curso 2: Estrategia de crecimiento en LinkedIn para jóvenes",
+                pains: `
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>No saben qué publicar ni cómo armar su perfil.</li>
+                        <li>Se sienten invisibles en LinkedIn (pocos contactos, pocas vistas).</li>
+                        <li>Les cuesta expresar su valor profesional.</li>
+                        <li>No saben cómo contactar a reclutadores o gerentes.</li>
+                        <li>Tienen miedo de parecer poco profesionales o "exagerados".</li>
+                    </ul>
+                `,
+                needs: `
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Tener un perfil atractivo y profesional.</li>
+                        <li>Saber cómo crecer en LinkedIn con una estrategia clara.</li>
+                        <li>Consejos simples para hacer publicaciones efectivas.</li>
+                        <li>Aprender a conectar con líderes y reclutadores de empresas top.</li>
+                        <li>Crear una marca personal auténtica.</li>
+                        <li>Usar herramientas como IA o portafolios digitales para destacarse.</li>
+                    </ul>
+                `,
+                modules: `
+                    <h4 class="font-semibold text-lg">Módulos del Curso</h4>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Módulo 1:</strong> Optimizando tu Perfil de LinkedIn</li>
+                        <li><strong>Módulo 2:</strong> Construyendo tu Marca Personal en LinkedIn</li>
+                        <li><strong>Módulo 3:</strong> Creación de Contenido que Impacta</li>
+                        <li><strong>Módulo 4:</strong> Estrategias de Networking Efectivas</li>
+                        <li><strong>Módulo 5:</strong> Herramientas y Recursos para Destacar</li>
+                        <li><strong>Módulo 6:</strong> Posicionándote para Oportunidades Profesionales</li>
+                    </ul>
+                `,
+                image: "https://via.placeholder.com/500x300?text=LinkedIn+y+Networking"
+            }
+        };
+
+        function showCourse(courseId) {
+            const course = courses[courseId];
+            document.getElementById('course-details').classList.remove('hidden');
+            document.getElementById('course-title').innerHTML = course.title;
+            document.getElementById('course-content').innerHTML = `
+                <h4 class="font-semibold text-lg text-blue-500">🎯 Dolores (Pains):</h4>
+                ${course.pains}
+                <h4 class="font-semibold text-lg text-green-500 mt-4">💡 Necesidades (Needs):</h4>
+                ${course.needs}
+                ${course.modules}
+            `;
+            document.getElementById('dynamic-image').src = course.image;
+        }
+    </script>
+</body>
+</html>
